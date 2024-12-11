@@ -12,8 +12,8 @@ type questionModel struct {
 	questionIndex int
 	choices       []string
 	cursorIndex   int
-	width int
-	height int
+	width         int
+	height        int
 }
 
 func NewQuestionModel(art string) questionModel {
@@ -68,12 +68,12 @@ func (m questionModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				}
 			case 1: // "Enter a name: "
 				// save in the db
-	
+
 			case 2: // "Would you like to exit or generate more art?"
 				if m.cursorIndex == 0 {
 					return m, tea.Quit
 				} else if m.cursorIndex == 1 {
-					return NewChatModel().Update(msg);
+					return NewChatModel().Update(msg)
 				}
 			}
 

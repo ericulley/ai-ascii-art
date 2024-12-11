@@ -32,7 +32,7 @@ to quickly create a Cobra application.`,
 			db.DeleteArtById(id)
 		} else if id == 0 && name != "" {
 			db.DeleteArtByName(name)
-		} 
+		}
 	},
 }
 

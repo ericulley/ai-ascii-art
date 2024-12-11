@@ -10,7 +10,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-
 var from string
 var to string
 

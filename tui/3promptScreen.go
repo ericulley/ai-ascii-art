@@ -8,11 +8,11 @@ import (
 )
 
 type promptModel struct {
-	asciiArt   string
-	prompts []string
+	asciiArt    string
+	prompts     []string
 	promptIndex int
 	answerField textinput.Model
-	width int
+	width       int
 }
 
 func (m promptModel) Init() tea.Cmd {
@@ -25,11 +25,11 @@ func NewPromptModel(art string) *promptModel {
 	answerField.Focus()
 	answerField.Width = 128
 	return &promptModel{
-		asciiArt: art,
-		prompts: []string{"Enter a name to store this art: ", "Success! Your art was stored under "}, 
+		asciiArt:    art,
+		prompts:     []string{"Enter a name to store this art: ", "Success! Your art was stored under "},
 		promptIndex: 0,
-		answerField: answerField, 
-		width: 80,
+		answerField: answerField,
+		width:       80,
 	}
 }
 

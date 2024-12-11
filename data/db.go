@@ -86,7 +86,7 @@ func ListArtWithLimit(limit int) error {
 		}
 		fmt.Println(id, name, art)
 	}
-	return nil 
+	return nil
 }
 
 func ListArtNames() error {
@@ -137,7 +137,7 @@ func ListArtNamesWithLimit(limit int) error {
  *  Delete functions
  */
 
- func DeleteArtById(id int) error {
+func DeleteArtById(id int) error {
 	db, err := sql.Open("sqlite3", "./data/sqlite.db")
 	if err != nil {
 		log.Fatal(err)
@@ -160,9 +160,9 @@ func ListArtNamesWithLimit(limit int) error {
 		fmt.Println("No record found with id: ", id)
 	}
 	return nil
- }
+}
 
- func DeleteArtByName(name string) error {
+func DeleteArtByName(name string) error {
 	db, err := sql.Open("sqlite3", "./data/sqlite.db")
 	if err != nil {
 		log.Fatal(err)
@@ -185,9 +185,9 @@ func ListArtNamesWithLimit(limit int) error {
 		fmt.Println("No record found with name: ", name)
 	}
 	return nil
- }
+}
 
- /*
+/*
  *  Update functions
  */
 func UpdateArt(fromNameOrId string, toName string) error {
@@ -198,9 +198,9 @@ func UpdateArt(fromNameOrId string, toName string) error {
 	defer db.Close()
 	var res sql.Result
 	fromId, err := strconv.Atoi(fromNameOrId)
-    if err != nil {
+	if err != nil {
 		// value is a string
-        stmt, err := db.Prepare(`UPDATE ascii SET name = ? WHERE name = ?`)
+		stmt, err := db.Prepare(`UPDATE ascii SET name = ? WHERE name = ?`)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -209,9 +209,9 @@ func UpdateArt(fromNameOrId string, toName string) error {
 			return err
 		}
 		defer stmt.Close()
-    } else {
+	} else {
 		// value is an integer
-        stmt, err := db.Prepare(`UPDATE ascii SET name = ? WHERE id = ?`)
+		stmt, err := db.Prepare(`UPDATE ascii SET name = ? WHERE id = ?`)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -220,7 +220,7 @@ func UpdateArt(fromNameOrId string, toName string) error {
 			return err
 		}
 		defer stmt.Close()
-    }
+	}
 	if rows, err := res.RowsAffected(); err == nil && rows > 0 {
 		fmt.Println("Successfully updated record in db")
 	} else if err != nil {
@@ -246,7 +246,7 @@ func Art() string {
 	}
 	defer stmt.Close()
 	var art string
-	err = stmt.QueryRow().Scan(&art);
+	err = stmt.QueryRow().Scan(&art)
 	if err != nil {
 		log.Fatal(err)
 	}
