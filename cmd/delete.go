@@ -1,5 +1,5 @@
 /*
-Copyright © 2024 NAME HERE <EMAIL ADDRESS>
+Copyright © 2024 Eric Culley <https://github.com/ericulley>
 */
 package cmd
 
@@ -16,13 +16,7 @@ var name string
 // deleteCmd represents the delete command
 var deleteCmd = &cobra.Command{
 	Use:   "delete",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Deletes an ascii art record",
 	Run: func(cmd *cobra.Command, args []string) {
 		if id == 0 && name == "" {
 			fmt.Println("Please specify an id [--id] or name [--name] of the ascii art to delete")

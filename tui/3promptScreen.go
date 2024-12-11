@@ -1,3 +1,6 @@
+/*
+Copyright © 2024 Eric Culley <https://github.com/ericulley>
+*/
 package tui
 
 import (

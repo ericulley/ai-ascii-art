@@ -1,5 +1,5 @@
 /*
-Copyright © 2024 Eric Culley <ericulley>
+Copyright © 2024 Eric Culley <https://github.com/ericulley>
 */
 package main
 

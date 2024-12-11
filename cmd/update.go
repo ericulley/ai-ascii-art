@@ -1,5 +1,5 @@
 /*
-Copyright © 2024 NAME HERE <EMAIL ADDRESS>
+Copyright © 2024 Eric Culley <https://github.com/ericulley>
 */
 package cmd
 
@@ -16,13 +16,7 @@ var to string
 // updateCmd represents the update command
 var updateCmd = &cobra.Command{
 	Use:   "update-name",
-	Short: "This commands updates the name of an ascii art record",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Updates the name of an ascii art record",
 	Run: func(cmd *cobra.Command, args []string) {
 		if from == "" || to == "" {
 			fmt.Println("Please specify the name of the ascii art to update [--from] and the new name [--to]")
