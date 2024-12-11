@@ -1,4 +1,4 @@
-package screens
+package tui
 
 import (
 	"github.com/charmbracelet/bubbles/textinput"

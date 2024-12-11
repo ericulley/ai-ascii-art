@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ericulley/ascii/cmd/screens"
+	"github.com/ericulley/ascii/tui"
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/spf13/cobra"
@@ -19,7 +19,7 @@ var createCmd = &cobra.Command{
 	Short: "This command opens a chat session with AI to generate an ascii art",
 	Long:  `This commands sends a message to chatGPT`,
 	Run: func(cmd *cobra.Command, args []string) {
-		p := tea.NewProgram(screens.NewChatModel())
+		p := tea.NewProgram(tui.NewChatModel())
 		if _, err := p.Run(); err != nil {
 			fmt.Fprintf(os.Stderr, "Oof: %v\n", err)
 		}
