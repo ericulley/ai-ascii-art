@@ -160,6 +160,21 @@ func (m chatModel) View() string {
 }
 
 func (m chatModel) SendMessage(content string) (*openai.ChatCompletionChoice, error) {
+	// If there is no openai api key, return example art
+	if os.Getenv("OPENAI_API_KEY") == "" {
+		fmt.Println("No openai api key found. Using example art.")
+		choice := &openai.ChatCompletionChoice{
+			Index: 0,
+			Message: openai.ChatCompletionMessage{
+				Role:    openai.ChatMessageRoleSystem,
+				Content: "```\n    _____\\    _______\n   /      \\  |      /\\\n  /_______/  |_____/  \\\n |   \\   /        /   /\n  \\   \\ MISSING \\/   /\n   \\  /   API    \\__/_\n    \\/ ___KEY_ /\\\n      /  \\    /  \\\n     /\\   \\  /   /\n       \\   \\/   /\n        \\___\\__/\n```",
+			},
+			FinishReason: "stop",
+		}
+		return choice, nil
+	}
+	fmt.Println("Sending message to ChatGPT...")
+	// Otherwise send the message to openai
 	ctx := context.Background()
 	req := openai.ChatCompletionRequest{
 		Model:     "gpt-4o-mini",
