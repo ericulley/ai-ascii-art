@@ -5,6 +5,9 @@
 fmt:
 	gofmt -w -l .
 
+env:
+	printf "OPENAI_API_KEY= \nOPENAI_MAX_TOKENS=100\n" > .env
+
 build:
 	go build -o bin/ascii main.go
 
