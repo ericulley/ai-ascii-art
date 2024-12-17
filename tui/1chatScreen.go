@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 
 	"github.com/charmbracelet/bubbles/cursor"
@@ -175,10 +176,16 @@ func (m chatModel) SendMessage(content string) (*openai.ChatCompletionChoice, er
 	}
 	fmt.Println("Sending message to ChatGPT...")
 	// Otherwise send the message to openai
+	var maxTokens int
+	if os.Getenv("OPENAI_MAX_TOKENS") != "" {
+		maxTokens, _ = strconv.Atoi(os.Getenv("OPENAI_MAX_TOKENS"))
+	} else {
+		maxTokens = 100
+	}
 	ctx := context.Background()
 	req := openai.ChatCompletionRequest{
 		Model:     "gpt-4o-mini",
-		MaxTokens: 100,
+		MaxTokens: maxTokens,
 		Messages: []openai.ChatCompletionMessage{{
 			Role:    openai.ChatMessageRoleUser,
 			Content: content,
