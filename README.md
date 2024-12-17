@@ -1,5 +1,7 @@
 # AI ASCII ART
 
+#### Video Demo: https://youtu.be/6hoVhv8_K_E
+
 CS50 Final Project  
 Copyright © 2024 [Eric Culley](https://github.com/ericulley)
 
