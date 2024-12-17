@@ -42,7 +42,7 @@ func NewChatModel() chatModel {
 	ta.Prompt = "> "
 	ta.CharLimit = 280
 
-	ta.SetWidth(30)
+	ta.SetWidth(80)
 	ta.SetHeight(1)
 
 	// Remove cursor line styling
@@ -174,7 +174,6 @@ func (m chatModel) SendMessage(content string) (*openai.ChatCompletionChoice, er
 		}
 		return choice, nil
 	}
-	fmt.Println("Sending message to ChatGPT...")
 	// Otherwise send the message to openai
 	var maxTokens int
 	if os.Getenv("OPENAI_MAX_TOKENS") != "" {

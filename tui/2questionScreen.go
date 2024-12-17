@@ -30,6 +30,8 @@ func NewQuestionModel(art string) questionModel {
 		questionIndex: 0,
 		choices:       []string{"Yeah", "Na", "Exit", "Chat"},
 		cursorIndex:   0,
+		width:         80,
+		height:        10,
 	}
 }
 

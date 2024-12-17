@@ -16,6 +16,7 @@ type promptModel struct {
 	promptIndex int
 	answerField textinput.Model
 	width       int
+	height      int
 }
 
 func (m promptModel) Init() tea.Cmd {
@@ -33,6 +34,7 @@ func NewPromptModel(art string) *promptModel {
 		promptIndex: 0,
 		answerField: answerField,
 		width:       80,
+		height:      10,
 	}
 }
 
@@ -44,6 +46,7 @@ func (m promptModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.WindowSizeMsg:
 		m.width = msg.Width
+		m.height = msg.Height
 	case tea.KeyMsg:
 		switch msg.String() {
 		case "ctrl+c":
